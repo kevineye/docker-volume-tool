@@ -1,0 +1,14 @@
+http://:8080
+
+@get method GET
+@getroot {
+	method GET
+	path /
+}
+
+route {
+	redir @getroot /_/files
+	reverse_proxy /_/* 127.0.0.1:8081
+	file_server @get browse
+	webdav
+}

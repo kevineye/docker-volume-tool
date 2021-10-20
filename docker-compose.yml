@@ -1,0 +1,11 @@
+version: "2"
+services:
+  app:
+    image: kevineye/volume-tool
+    build: .
+    volumes:
+      - .:/data
+      - ./Caddyfile:/Caddyfile:ro
+      - ./filebrowser.yml:/home/.filebrowser.yml:ro
+    ports:
+      - "8080:8080"
