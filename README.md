@@ -35,6 +35,17 @@ Missing features:
 
 ## Openshift Examples
 
+Use the included shell script to quickly run a pod that mounts a persistent volume, sets up port forwarding, opens a browser window, and cleans up after itself:
+
+    # login first
+    oc login ...
+    oc project ...
+    
+    # run the script
+    ./oc-volume-access.sh <pvc-name>
+    
+Alternately, run the commands directly:
+
     # replace NAME_OF_PVC with volume to access
     oc run volume-tool --image unused --restart Never \
       --overrides '{"spec": {"containers": [ { "name": "volume-tool", "image": "kevineye/volume-tool",
